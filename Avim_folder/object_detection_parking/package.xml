@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <n>object_detection_parking</n>
+  <version>0.0.0</version>
+  <description>
+    Object Detection Parking – ROS 2 (Humble / Iron)
+    Prueba 4: estacionamiento en batería / paralelo
+    Sensor: Orbbec Astra Pro (rango corto 18–44 cm)
+    Usa el msg PointsObjects del paquete object_detection
+  </description>
+
+  <maintainer email="jose@todo.todo">jose</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>libopencv-dev</depend>
+
+  <!-- Importa el msg PointsObjects definido en object_detection -->
+  <!-- ROS 1: <depend>object_detection</depend> igual que ahora -->
+  <depend>object_detection</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

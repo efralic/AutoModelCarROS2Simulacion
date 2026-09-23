@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>lane_detection</name>
+  <version>0.0.0</version>
+  <description>
+    Lane Detection + STOP Sign Detector  –  ROS 2 (Humble / Iron)
+
+    Cámaras:
+      • Detección de carril   : Arducam IMX219 (CSI)  →  /arducam/image_raw
+      • Detección STOP/objetos: Orbbec Astra Pro (USB) →  /camera/color/image_raw
+
+    Pipeline avanzado de lane_detection:
+      ROI → Blur → CLAHE → HSV ∩ LAB → Bird's-eye → Sliding windows
+      → Polyfit grado 2 → Suavizado temporal → Error lateral
+  </description>
+
+  <maintainer email="jose@todo.todo">jose</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <!-- Dependencias C++ (lane_detection.cpp) -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <!-- Dependencias Python (stop_sign_detector.py) -->
+  <depend>rclpy</depend>
+
+  <!-- OpenCV (sistema, no ROS) -->
+  <depend>libopencv-dev</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

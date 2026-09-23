@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <n>object_detection</n>
+  <version>0.0.0</version>
+  <description>
+    Object Detection – ROS 2 (Humble / Iron)
+    Sensor: Orbbec Astra Pro (reemplaza LIDAR LD14P)
+    Lee imagen de profundidad → DBSCAN → publica /objects_points
+    Formato de salida idéntico al original → Masters sin cambios
+  </description>
+
+  <maintainer email="jose@todo.todo">jose</maintainer>
+  <license>TODO</license>
+
+  <!-- Build tools -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Generación del mensaje custom PointsObjects -->
+  <!-- ROS 1: message_generation / message_runtime -->
+  <!-- ROS 2: rosidl_default_generators / rosidl_default_runtime -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <!-- Dependencias del nodo C++ -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>libopencv-dev</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
