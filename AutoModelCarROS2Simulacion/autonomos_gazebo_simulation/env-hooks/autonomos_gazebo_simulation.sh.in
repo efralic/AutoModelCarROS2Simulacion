@@ -1,0 +1,11 @@
+# generado a partir de autonomos_gazebo_simulation/env-hooks/autonomos_gazebo_simulation.sh.in
+#
+# Sin esto, Gazebo no encuentra las referencias model://pista_tmr_2021,
+# model://AutoNOMOS_mini/meshes/..., model://wall, model://base_materials,
+# etc. dentro de los .sdf/.world — hace falta que GAZEBO_MODEL_PATH incluya
+# la carpeta models/ instalada de este paquete.
+#
+# @AUTONOMOS_GAZEBO_MODELS_PATH@ la sustituye CMake en tiempo de build con
+# la ruta absoluta real (no se usa $AMENT_CURRENT_PREFIX en runtime, porque
+# ese valor queda pisado por el underlay /opt/ros/humble al hacer source).
+ament_prepend_unique_value GAZEBO_MODEL_PATH "@AUTONOMOS_GAZEBO_MODELS_PATH@"
